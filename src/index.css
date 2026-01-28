@@ -1,139 +1,215 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  AcademicWritingPro Design System
-  Theme: Clean, modern, trustworthy
-  Colors: Deep blue (#1e3a5f) and soft violet (#8b5cf6) accents on white
-*/
+/* ======================================================
+   DESIGN SYSTEM: ACADEMIC WRITING PRO
+   Visual Direction:
+   - Trust, authority, clarity
+   - Deep Navy + Slate Blue core
+   - White, Light Gray, Champagne accents
+====================================================== */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 28% 17%;
+    /* ------------------------------
+       CORE BACKGROUND & TEXT (LIGHT)
+    ------------------------------ */
+    --background: 210 20% 98%;       /* crisp white */
+    --foreground: 215 25% 18%;       /* near-black navy */
+
+    --surface: 210 20% 96%;          /* light gray */
+    --surface-muted: 210 18% 93%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 215 25% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 215 25% 18%;
 
-    /* Deep blue primary */
-    --primary: 213 52% 24%;
+    /* ------------------------------
+       BRAND COLORS
+    ------------------------------ */
+    /* Deep Navy (primary authority color) */
+    --primary: 215 45% 20%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light blue-gray secondary */
-    --secondary: 214 32% 96%;
-    --secondary-foreground: 213 52% 24%;
+    /* Slate Blue (secondary / supporting) */
+    --secondary: 215 30% 90%;
+    --secondary-foreground: 215 45% 20%;
 
-    --muted: 214 32% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Champagne / Gold accents */
+    --accent: 42 65% 55%;
+    --accent-foreground: 215 45% 15%;
 
-    /* Soft violet accent */
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
+    /* ------------------------------
+       UI STATES
+    ------------------------------ */
+    --muted: 210 18% 93%;
+    --muted-foreground: 215 15% 45%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 78% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 262 83% 58%;
+    --border: 215 20% 85%;
+    --input: 215 20% 85%;
+    --ring: 215 45% 20%;
 
     --radius: 0.75rem;
 
-    /* Custom colors for the theme */
-    --deep-blue: 213 52% 24%;
-    --deep-blue-light: 213 45% 35%;
-    --deep-blue-dark: 213 55% 18%;
-    --violet: 262 83% 58%;
-    --violet-light: 262 83% 70%;
-    --violet-dark: 262 83% 48%;
-    --success: 142 71% 45%;
-    --warning: 38 92% 50%;
+    /* ------------------------------
+       HEADER & FOOTER (LIGHT)
+    ------------------------------ */
+    --header-background: 0 0% 100%;
+    --header-foreground: 215 45% 20%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(213 52% 24%) 0%, hsl(262 83% 58%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(214 32% 98%) 0%, hsl(0 0% 100%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(214 32% 98%) 100%);
+    --footer-background: 215 45% 18%;
+    --footer-foreground: 210 20% 95%;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(215 28% 17% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(215 28% 17% / 0.1), 0 2px 4px -2px hsl(215 28% 17% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(215 28% 17% / 0.1), 0 4px 6px -4px hsl(215 28% 17% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(215 28% 17% / 0.1), 0 8px 10px -6px hsl(215 28% 17% / 0.1);
-    --shadow-glow: 0 0 20px hsl(262 83% 58% / 0.3);
+    /* ------------------------------
+       ACCENT TOKENS
+    ------------------------------ */
+    --success: 145 65% 42%;
+    --warning: 42 85% 52%;
 
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 215 28% 17%;
-    --sidebar-primary: 213 52% 24%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 262 83% 58%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 262 83% 58%;
+    --rating-gold: 42 75% 55%;
+    --rating-muted: 215 15% 70%;
+
+    /* ------------------------------
+       GRADIENTS
+    ------------------------------ */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 45% 20%) 0%,
+      hsl(215 35% 35%) 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsl(210 20% 98%) 0%,
+      hsl(210 18% 94%) 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100%) 0%,
+      hsl(210 18% 95%) 100%
+    );
+
+    /* ------------------------------
+       SHADOWS
+    ------------------------------ */
+    --shadow-sm: 0 1px 2px hsl(215 25% 18% / 0.04);
+    --shadow-md: 0 8px 20px hsl(215 25% 18% / 0.08);
+    --shadow-lg: 0 20px 40px hsl(215 25% 18% / 0.12);
+    --shadow-glow: 0 0 24px hsl(42 65% 55% / 0.25);
   }
 
+  /* ======================================================
+     DARK THEME
+  ====================================================== */
   .dark {
-    --background: 215 28% 10%;
-    --foreground: 214 32% 96%;
+    --background: 215 35% 8%;
+    --foreground: 210 20% 96%;
 
-    --card: 215 28% 12%;
-    --card-foreground: 214 32% 96%;
+    --surface: 215 35% 12%;
+    --surface-muted: 215 30% 15%;
 
-    --popover: 215 28% 12%;
-    --popover-foreground: 214 32% 96%;
+    --card: 215 35% 10%;
+    --card-foreground: 210 20% 96%;
 
-    --primary: 262 83% 65%;
-    --primary-foreground: 0 0% 100%;
+    --popover: 215 35% 10%;
+    --popover-foreground: 210 20% 96%;
 
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 214 32% 96%;
+    /* Deep Navy becomes darker & grounded */
+    --primary: 215 55% 65%;
+    --primary-foreground: 215 35% 10%;
 
-    --muted: 215 28% 17%;
-    --muted-foreground: 215 16% 60%;
+    /* Slate Blue support */
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 20% 96%;
 
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
+    /* Champagne accent pops in dark */
+    --accent: 42 70% 60%;
+    --accent-foreground: 215 35% 10%;
 
-    --destructive: 0 62% 30%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 215 15% 60%;
+
+    --destructive: 0 65% 35%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 28% 20%;
-    --input: 215 28% 20%;
-    --ring: 262 83% 58%;
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 42 70% 60%;
 
-    --sidebar-background: 215 28% 10%;
-    --sidebar-foreground: 214 32% 96%;
-    --sidebar-primary: 262 83% 65%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 28% 17%;
-    --sidebar-accent-foreground: 214 32% 96%;
-    --sidebar-border: 215 28% 20%;
-    --sidebar-ring: 262 83% 58%;
+    /* Header & Footer (Dark) */
+    --header-background: 215 35% 10%;
+    --header-foreground: 210 20% 96%;
+
+    --footer-background: 215 45% 12%;
+    --footer-foreground: 210 20% 92%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 55% 65%) 0%,
+      hsl(215 45% 35%) 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsl(215 35% 8%) 0%,
+      hsl(215 35% 12%) 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(215 35% 10%) 0%,
+      hsl(215 30% 14%) 100%
+    );
   }
-}
 
-@layer base {
+  /* ------------------------------
+     BASE ELEMENT STYLES
+  ------------------------------ */
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
+    font-family: "Inter", sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     @apply font-bold tracking-tight;
   }
 }
 
+/* ======================================================
+   UTILITIES
+====================================================== */
 @layer utilities {
+  /* Header / Footer */
+  .bg-header {
+    background-color: hsl(var(--header-background));
+  }
+
+  .text-header {
+    color: hsl(var(--header-foreground));
+  }
+
+  .bg-footer {
+    background-color: hsl(var(--footer-background));
+  }
+
+  .text-footer {
+    color: hsl(var(--footer-foreground));
+  }
+
+  /* Gradients */
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
@@ -147,6 +223,28 @@
     background-image: var(--gradient-hero);
   }
 
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
+  }
+
+  /* Surfaces */
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+
+  .bg-surface-muted {
+    background-color: hsl(var(--surface-muted));
+  }
+
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Effects */
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -164,31 +262,20 @@
   }
 }
 
+/* ======================================================
+   KEYFRAMES
+====================================================== */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

@@ -14,7 +14,7 @@ import {
   ArrowRight
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "YOUR_NUMBER_HERE";
+const WHATSAPP_NUMBER = "18154529376";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hello AcademicWritingPro, I need help with an assignment.");
 
 const guarantees = [

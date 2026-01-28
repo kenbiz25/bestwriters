@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -21,12 +26,23 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
       },
+
+      /* ----------------------------------
+       COLORS (softened whites + surfaces)
+      ---------------------------------- */
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+
+        /* Core backgrounds */
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
+        /* New subtle surfaces */
+        surface: "hsl(var(--surface))",
+        "surface-muted": "hsl(var(--surface-muted))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -55,6 +71,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        /* Sidebar (unchanged) */
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -65,6 +83,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+
+        /* Brand colors */
         "deep-blue": {
           DEFAULT: "hsl(var(--deep-blue))",
           light: "hsl(var(--deep-blue-light))",
@@ -75,14 +95,27 @@ export default {
           light: "hsl(var(--violet-light))",
           dark: "hsl(var(--violet-dark))",
         },
+
+        /* Status */
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
+
+        /* Testimonials / ratings */
+        rating: {
+          gold: "hsl(var(--rating-gold))",
+          muted: "hsl(var(--rating-muted))",
+        },
       },
+
+      /* ----------------------------------
+       UI FEEL
+      ---------------------------------- */
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       boxShadow: {
         sm: "var(--shadow-sm)",
         md: "var(--shadow-md)",
@@ -90,6 +123,10 @@ export default {
         xl: "var(--shadow-xl)",
         glow: "var(--shadow-glow)",
       },
+
+      /* ----------------------------------
+       ANIMATIONS
+      ---------------------------------- */
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

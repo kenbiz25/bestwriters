@@ -13,7 +13,7 @@ import {
   ArrowRight
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "YOUR_NUMBER_HERE";
+const WHATSAPP_NUMBER = "18154529376";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hello AcademicWritingPro, I need help with an assignment.");
 
 const studentSteps = [
@@ -39,7 +39,25 @@ const studentSteps = [
     number: "4",
     icon: Download,
     title: "Final delivery",
-    description: "Download your paper and originality check. Share your experience—only 4★–5★ reviews are displayed.",
+    description: "Download your paper and originality check.",
+  },
+];
+
+const reviews = [
+  {
+    name: "Alice W.",
+    feedback: "Absolutely outstanding work! My essay was ready ahead of schedule and perfectly formatted.",
+    image: "https://i.pravatar.cc/150?img=32"
+  },
+  {
+    name: "James T.",
+    feedback: "Professional, fast, and reliable. Highly recommend for anyone struggling with deadlines!",
+    image: "https://i.pravatar.cc/150?img=47"
+  },
+  {
+    name: "Sofia L.",
+    feedback: "The writer understood my requirements perfectly. Excellent communication throughout.",
+    image: "https://i.pravatar.cc/150?img=12"
   },
 ];
 
@@ -61,7 +79,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Process Steps */}
-      <Section>
+      <Section className="-mt-12 md:-mt-16"> {/* pulled up slightly */}
         <div className="max-w-4xl mx-auto">
           <Card className="border-border/50">
             <CardHeader>
@@ -103,20 +121,27 @@ export default function HowItWorksPage() {
         </div>
       </Section>
 
-      {/* Reviews Policy */}
-      <Section className="bg-secondary/30">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-              <Star className="h-8 w-8 text-accent" />
-            </div>
-          </div>
-          <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-            Reviews Policy
+      {/* Reviews */}
+      <Section className="bg-secondary/10 py-16">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-12">
+            What Our Clients Say
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            We publicly highlight only 4★ and 5★ testimonials to keep quality high. All other feedback is reviewed internally to improve the experience.
-          </p>
+          <div className="grid gap-8 md:grid-cols-3">
+            {reviews.map((review) => (
+              <Card key={review.name} className="border-border/20">
+                <CardContent className="flex flex-col items-center text-center gap-4">
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                  <p className="text-muted-foreground">{review.feedback}</p>
+                  <span className="font-semibold text-foreground">{review.name}</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </Section>
 

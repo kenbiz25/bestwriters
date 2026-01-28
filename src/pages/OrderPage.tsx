@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Section } from "@/components/ui/section";
@@ -9,11 +10,14 @@ import {
   CreditCard, 
   Eye, 
   Download,
-  ArrowRight
+  ArrowRight,
+  QrCode,
+  X
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "18154529376";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hello BestAcademicWriters, I need help with an assignment.");
+const WECHAT_QR = "/images/wechat-qr.png";
 
 const steps = [
   {
@@ -43,6 +47,8 @@ const steps = [
 ];
 
 export default function OrderPage() {
+  const [showWeChat, setShowWeChat] = useState(false);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -55,20 +61,35 @@ export default function OrderPage() {
             <p className="text-lg text-muted-foreground mb-8">
               Tell us your subject, topic, and deadline—then relax. We'll match you to a writer and send milestone updates until delivery.
             </p>
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-gradient-primary hover:opacity-90 text-lg px-10"
-            >
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
-                target="_blank"
-                rel="noopener noreferrer"
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* WhatsApp */}
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-[#25D366] text-white hover:opacity-90 px-8"
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Order via WhatsApp
-              </a>
-            </Button>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Order via WhatsApp
+                </a>
+              </Button>
+
+              {/* WeChat */}
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-8 border-[#07C160] text-[#07C160] hover:bg-[#07C160]/10"
+                onClick={() => setShowWeChat(true)}
+              >
+                <QrCode className="mr-2 h-5 w-5" />
+                Order via WeChat
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -113,9 +134,11 @@ export default function OrderPage() {
             Ready to get started?
           </h2>
           <p className="text-primary-foreground/80 mb-8">
-            Click below to open WhatsApp and start your order. We typically respond within minutes.
+            Click below to open WhatsApp or WeChat and start your order. We typically respond within minutes.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* WhatsApp CTA */}
             <Button 
               asChild 
               size="lg" 
@@ -128,9 +151,22 @@ export default function OrderPage() {
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Order Now
+                Order via WhatsApp
               </a>
             </Button>
+
+            {/* WeChat CTA */}
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 border-[#07C160] text-[#07C160] hover:bg-[#07C160]/10"
+              onClick={() => setShowWeChat(true)}
+            >
+              <QrCode className="mr-2 h-5 w-5" />
+              Order via WeChat
+            </Button>
+
+            {/* Prices link */}
             <Button 
               asChild 
               variant="outline" 
@@ -145,6 +181,33 @@ export default function OrderPage() {
           </div>
         </div>
       </Section>
+
+      {/* WECHAT MODAL */}
+      {showWeChat && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
+          <div className="bg-card p-6 rounded-xl relative text-center max-w-sm w-full shadow-xl">
+            <button
+              onClick={() => setShowWeChat(false)}
+              className="absolute top-3 right-3 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <h3 className="text-lg font-semibold mb-2">
+              Chat with us on WeChat
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Open WeChat and scan the QR code below
+            </p>
+
+            <img
+              src={WECHAT_QR}
+              alt="WeChat QR"
+              className="w-48 h-48 mx-auto border rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

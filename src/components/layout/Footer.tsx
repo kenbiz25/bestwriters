@@ -1,9 +1,10 @@
-
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, MapPin, MessageCircle } from "lucide-react";
+import { GraduationCap, Mail, MessageCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "18154529376";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hello BestAcademicWriters, I need help with an assignment.");
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hello BestAcademicWriters, I need help with an assignment."
+);
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -22,29 +23,36 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-surface-muted dark:bg-[hsl(213_60%_12%)] text-foreground dark:text-white">
       <div className="container py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
-              <GraduationCap className="h-7 w-7" />
+            <Link
+              to="/"
+              className="flex items-center gap-2 font-display font-bold text-xl text-foreground dark:text-white"
+            >
+              <GraduationCap className="h-7 w-7 text-accent" />
               <span>BestAcademicWriters</span>
             </Link>
-            <p className="text-sm text-primary-foreground/80 leading-relaxed">
-              Professional academic writing support. Original work, confidential service, and fair pricing.
+
+            <p className="text-sm text-muted-foreground dark:text-white/70 leading-relaxed">
+              Professional academic writing support. Original work,
+              confidential service, and fair pricing.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-display font-semibold mb-4 text-foreground dark:text-white">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground dark:text-white/70 dark:hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -55,13 +63,15 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Services</h4>
+            <h4 className="font-display font-semibold mb-4 text-foreground dark:text-white">
+              Services
+            </h4>
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground dark:text-white/70 dark:hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -72,43 +82,43 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Contact</h4>
+            <h4 className="font-display font-semibold mb-4 text-foreground dark:text-white">
+              Contact
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground dark:text-white/70 dark:hover:text-white transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <MessageCircle className="h-4 w-4 text-accent" />
                   WhatsApp Support
                 </a>
               </li>
+
               <li>
                 <a
                   href="mailto:support@bestacademicwriters.co"
-                  className="flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground dark:text-white/70 dark:hover:text-white transition-colors"
                 >
-                  <Mail className="h-4 w-4" />
+                  <Mail className="h-4 w-4 text-accent" />
                   support@bestacademicwriters.co
                 </a>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-primary-foreground/80">
-                <MapPin className="h-4 w-4" />
-                Nairobi, Kenya
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/20">
+        <div className="mt-12 pt-8 border-t border-border/60 dark:border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-primary-foreground/60">
+            <p className="text-sm text-muted-foreground dark:text-white/60">
               © {currentYear} BestAcademicWriters. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-sm text-primary-foreground/60">
+
+            <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-white/60">
               <span>Original work</span>
               <span>•</span>
               <span>Confidential service</span>
