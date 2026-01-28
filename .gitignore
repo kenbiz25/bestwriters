@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+
+# vite cache
+.vite/
+node_modules/.vite/
+
+# logs & misc
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+
+# env files (keep an example)
+.env*
+!.env.example
